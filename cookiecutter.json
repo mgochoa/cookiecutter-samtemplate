@@ -1,0 +1,21 @@
+{
+    "full_name": "Manuel Ochoa Loaiza",
+    "email": "mochoa@example.com",
+    "github_username": "mgochoa",
+    "project_name": "AWS SAM Boilerplate",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
+    "project_short_description": "AWS SAM Serverless Boilerplate for common projects",
+    "version": "0.1.0",
+    "create_author_file": "y",
+    "lang_node_version": [
+        "8.x",
+        "10.x",
+        "12.x",
+        "14.x"
+    ],
+    "lang_python_version": [
+        "3.7",
+        "3.8",
+        "3.9"
+    ]
+}

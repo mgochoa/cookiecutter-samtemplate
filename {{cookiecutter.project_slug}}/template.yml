@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  {{cookiecutter.project_short_description}}
+Parameters:
+  ApplicationName:
+    Type: String
+    Default: {{cookiecutter.project_slug}}
+  EnvironmentClass:
+    Type: String
+    Default: dev
+  AppSubnet1:
+    Description: Subnets where the Lambda function will reside in the VPC, e.g. the
+    Type: String
+  AppSubnet2:
+    Description: Subnets where the Lambda function will reside in the VPC, e.g. the
+    Type: String
+
+Globals:
+  Function:
+    Timeout: 900
+    Environment:
+      Variables:
+        AppName: !Ref ApplicationName
+
+Conditions:
+  PrdEnv: !Equals
+    - !Ref EnvironmentClass
+    - prd
+
+Resources:
+
+
+Outputs:

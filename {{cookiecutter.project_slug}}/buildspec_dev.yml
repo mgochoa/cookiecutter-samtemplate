@@ -1,0 +1,21 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: {{cookiecutter.lang_node_version}}
+      python: {{cookiecutter.lang_python_version}}
+    commands:
+      - pip install --upgrade pip
+      - pip3 install --upgrade aws-sam-cli
+      - npm install
+
+  build:
+    commands:
+      - echo "****************************Compiling {{cookiecutter.project_name}}****************************"
+      - cd $CODEBUILD_SRC_DIR
+      - sam build
+      - sam package --template-file .aws-sam/build/template.yaml --s3-bucket $s3bucket --output-template-file packaged-template-{{cookiecutter.project_slug}}.yml
+artifacts:
+  files:
+    - ./packaged-template-{{cookiecutter.project_slug}}.yml
+  discard-paths: yes
